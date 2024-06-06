@@ -1,0 +1,1 @@
+export const prodUrl = 'http://localhost:500/prod'
