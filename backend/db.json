@@ -1,46 +1,91 @@
 {
   "prod": [
     {
-      "id": "2a62",
+      "id": "0fd6",
+      "title": "ghbasd",
+      "brand": "BALON",
+      "description": "zor olma",
+      "image": "http://localhost:5173/1720213f-9430-4f29-9771-d8c719ee1af9",
+      "price": "200",
+      "size": "2xl",
+      "currence": "dollars"
+    },
+    {
+      "id": "c5ad",
+      "title": "shina",
+      "brand": "miashlae",
+      "description": "zorolma",
+      "image": "http://localhost:5173/d44466fb-1996-48e5-bfd6-73a34c5cda7c",
+      "price": "200",
+      "size": "5XL",
+      "currence": "rubles"
+    },
+    {
+      "id": "b1ca",
       "title": "shina",
       "brand": "mishlen",
-      "price": "200000",
-      "size": "2xl"
+      "description": "zor olma",
+      "image": "http://localhost:5173/fdab43f0-41ad-4cef-8a13-222b9a1fc576",
+      "price": "200",
+      "size": "5XL",
+      "currence": "UZDT"
+    }
+  ],
+  "users": [
+    {
+      "id": "397f",
+      "password": "123",
+      "login": "user222",
+      "name": "Malone Spears",
+      "role": "user"
     },
     {
-      "id": "851c",
-      "title": "shina",
-      "brand": "mishlen",
-      "price": "200000",
-      "size": "2xl"
+      "id": "651d",
+      "password": "1111",
+      "login": "admin",
+      "name": "Begzod",
+      "role": "admin"
     },
     {
-      "id": "f46a",
-      "title": "shina",
-      "brand": "mishlen",
-      "price": "200000",
-      "size": "2xl"
+      "id": "f446",
+      "password": "1234",
+      "login": "user3333",
+      "name": "Ibrohim"
     },
     {
-      "id": "3a57",
-      "title": "shina",
-      "brand": "mishlen",
-      "price": "200000",
-      "size": "2xl"
+      "id": "5f87",
+      "password": "4444",
+      "login": "alyosha123",
+      "name": "Alisher"
     },
     {
-      "id": "38b0",
-      "title": "bich",
-      "brand": "mishlen",
-      "price": "2",
-      "size": "xl"
+      "id": "1be7",
+      "password": "0000",
+      "login": "sh555",
+      "name": "Sherzod"
+    }
+  ],
+  "baket": [
+    {},
+    {
+      "id": "f4e4",
+      "password": "1234",
+      "login": "user3333",
+      "name": "Ibrohim",
+      "products": []
     },
     {
-      "id": "567b",
-      "title": "bich",
-      "brand": "mishlen",
-      "price": "2",
-      "size": "xl"
+      "id": "d004",
+      "password": "4444",
+      "login": "alyosha123",
+      "name": "Alisher"
+    },
+    {
+      "id": "0f94",
+      "password": "0000",
+      "login": "sh555",
+      "name": "Sherzod",
+      "products": []
     }
   ]
 }

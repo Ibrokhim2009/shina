@@ -30,7 +30,7 @@ function Footer() {
                     © 2021 Shina.uz
                 </h1>
             </div>
-            <div className='flex items-center text-[30px] xl:gap-[20px] justify-between'>
+            <div className='flex items-center text-[30px] gap-[20px] justify-between'>
                 <button>
                     <FaInstagram />
                 </button>
