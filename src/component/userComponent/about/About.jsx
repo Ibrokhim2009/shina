@@ -4,9 +4,8 @@ function About() {
     return (
         <div className='flex flex-col mt-[70px] mb-[40px] justify-center items-center'>
             <h1 className='text-[52px] mb-[30px]'>Узнайте все информацию о нас</h1>
-            <div className='flex items-start justify-around '>
-
-                <p className='text-[20px] text-[gray]'>
+            <div className='flex items-center lg:items-start justify-around flex-col lg:flex-row'>
+                <p className='text-[20px] text-center lg:text-start text-[gray]'>
                     Мы объединяем исследования и разработки шинных технологий,
                     переработку и продажу, а также глобальную торговлю и логистику. Наши собственные марки
                     шин SPORTRAK & SUPERWAY сертифицированы по стандартам ISO9000, TS16949, американским DOT
