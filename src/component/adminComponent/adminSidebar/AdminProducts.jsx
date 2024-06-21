@@ -62,10 +62,10 @@ function AdminProducts() {
     // console.log(files)
     return (
         <>
-            <form onSubmit={productHandler} className='w-[100%] border-[3px]  rounded-[16px] h-[100%] flex-col gap-[10px] flex px-[20px] pb-[20px] pt-[30px]'>
+            <form onSubmit={productHandler} className='w-[100%] border-[3px] rounded-[16px] h-[100%] flex-col gap-[10px] flex px-[20px] pb-[20px] pt-[30px]'>
                 <h1 className='text-black text-[40px]'>Add product</h1>
                 <div className='flex items-center flex-col gap-[14px]'>
-                    <div className='w-[100%] flex gap-[20px]'>
+                    <div className='w-[100%] flex md:flex-row flex-col gap-[20px]'>
                         <input required className='w-[100%] shadow-xl outline-none rounded-xl h-[50px] pl-[10px] text-[24px]' type="text" name="title" id="" placeholder='title' />
                         <input required className='w-[100%] shadow-xl outline-none rounded-xl h-[50px] pl-[10px] text-[24px]' type="text" name="brand" id="" placeholder='brand' />
                         {/* <input className='w-[100%] outline-none rounded-xl h-[50px] shadow-xl pl-[10px] text-[24px]' type="text" name="image" id="" placeholder='image' /> */}
@@ -79,9 +79,9 @@ function AdminProducts() {
                         <input onChange={handleFileChange} className='hidden' type="file" name="" id="hidden-input" placeholder='image' />
                     </div>
                     <input required className='w-[100%] shadow-xl outline-none rounded-xl h-[50px] pl-[10px] text-[24px]' type="text" placeholder='description' name="description" id="" />
-                    <div className='w-[100%] justify-between gap-[20px] h-[60px] flex items-center'>
-                        <input required className='w-[90%] shadow-xl outline-none rounded-xl h-[50px] pr-[30px] pl-[10px] text-[24px]' type="number" placeholder='price' name="price" id="" />
-                        <select required name="" className='appearance-none w-[10%] h-[50px] shadow-xl outline-none text-[20px] pl-[10px] rounded-xl flex items-center justify-center' id="" value={selectedValue} onChange={handleSelectChange}>
+                    <div className='w-[100%] justify-between gap-[10px] md:gap-[20px] h-[60px] flex items-center'>
+                        <input required className='md:w-[90%] w-[80%] shadow-xl outline-none rounded-xl h-[50px] pr-[30px] pl-[10px] text-[24px]' type="number" placeholder='price' name="price" id="" />
+                        <select required name="" className='appearance-none md:w-[15%] w-[20%] h-[50px] shadow-xl outline-none text-[16px] md:text-[20px] pl-[10px] rounded-xl flex items-center justify-center' id="" value={selectedValue} onChange={handleSelectChange}>
                             <option className='' value="dollars">USDT</option>
                             <option className='' value="sum">UZD</option>
                             <option className='' value="rubles">RUB</option>

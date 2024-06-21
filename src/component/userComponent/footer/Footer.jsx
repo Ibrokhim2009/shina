@@ -7,9 +7,9 @@ import { NavLink } from 'react-router-dom'
 
 function Footer() {
     return (
-        <footer className='py-[30px]  bg-[#e8f4ff] w-[100%] flex items-center justify-between xl:px-[40px] md:px-[30px] px-[20px]'>
-            <div className='flex items-start w-[34%] gap-[10px] flex-col'>
-                <div className='flex items-center text-[gray] text-[24px] w-[100%] justify-between'>
+        <footer className='lg:py-[30px] py-[10px] bg-[#e8f4ff] w-[100%] flex items-center justify-between xl:px-[40px] md:px-[30px] px-[20px]'>
+            <div className='flex items-start gap-[10px] flex-col'>
+                <div className='flex items-center gap-[20px] text-[gray] text-[10px] md:text-[24px]'>
                     <NavLink>
                         О нас
                     </NavLink>
@@ -26,11 +26,11 @@ function Footer() {
                         Log In
                     </NavLink>
                 </div>
-                <h1 className='text-[#5C5C6D] text-[14px]'>
+                <h1 className='text-[#5C5C6D] text-[10px] md:text-[14px]'>
                     © 2021 Shina.uz
                 </h1>
             </div>
-            <div className='flex items-center text-[30px] gap-[20px] justify-between'>
+            <div className='flex items-center text-[16px] lg:text-[30px] md:gap-[20px] gap-[10px]'>
                 <button>
                     <FaInstagram />
                 </button>
@@ -44,6 +44,7 @@ function Footer() {
                     <RiFacebookCircleLine />
                 </button>
             </div>
+
         </footer>
     )
 }

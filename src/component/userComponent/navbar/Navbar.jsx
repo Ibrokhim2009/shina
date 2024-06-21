@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import logo from '../../../assets/shinaLogo.png'
+import logo from '../../../assets/photo_2024-06-11_10-50-57.jpg'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { SlBasket } from 'react-icons/sl'
@@ -10,8 +10,10 @@ import { IoPersonCircleSharp } from 'react-icons/io5'
 import axios from 'axios'
 import { usersUrl } from '../../../../Urls'
 import { logOutAction } from '../../../reducer/action'
+import { FiMenu } from 'react-icons/fi'
+import { IoMdClose } from 'react-icons/io'
 function Navbar() {
-    const { scroll1Ref, scroll2Ref, scroll3Ref, scrollToSection, tokenDispatch, tokenState } = useContext(Context)
+    const { scroll1Ref, scroll2Ref, userId, scroll3Ref, isMenuOpen, setIsMenuOpen, toggleMenu, scrollToSection, tokenDispatch, tokenState } = useContext(Context)
     const navigate = useNavigate()
     const [isVisible, setIsVisible] = useState(false)
     const [navbarUsers, setNavbarUsers] = useState([])
@@ -69,20 +71,20 @@ function Navbar() {
     const adminHandler = e => {
         if (tokenState.token) {
             navigate('/admin')
+            setIsMenuOpen(false)
         }
         else {
             navigate('/login')
         }
     }
     return (
-        <nav className={`h-[100px] sticky mb-[40px] top-0 left-0 ${isVisible ? 'shadow-[0px_5px_15px_#e6e6e6]' : ''} bg-[#F2F6FA] flex justify-around items-center w-[100%]`}>
+        <nav className={`md:h-[80px] bg-[#091a2a] text-white lg:h-[90px] xl:h-[100px] h-[60px] sm:h-[70px] sticky mb-[40px] top-0 left-0 ${isVisible ? 'shadow-[0px_5px_15px_#e6e6e6]' : ''} bg-[#F2F6FA] flex justify-around items-center w-[100%]`}>
             <div>
-
                 <button onClick={logoButton}>
-                    <img className='h-[100px]' src={logo} alt="" />
+                    <img className='md:h-[70px] lg:h-[85px] xl:h-[100px] h-[60px]' src={logo} alt="" />
                 </button>
             </div>
-            <div className='flex items-center text-[28px] w-[30%] justify-between '>
+            <div className='flex items-center text-[16px] md:text-[28px] gap-[20px] md:gap-5 justify-center '>
                 {/* <NavLink className={'hover:underline hover:text-[skyblue] transition-all duration-200'}>
                     Популярные
                 </NavLink> */}
@@ -96,11 +98,11 @@ function Navbar() {
                     Заказать
                 </NavLink>
             </div>
-            <div className='flex items-center gap-[30px]'>
+            <div className='items-center hidden lg:flex gap-[30px]'>
                 <NavLink to={'/products'} className={'hover:underline text-[28px] hover:text-[skyblue] transition-all duration-200'}>
                     Товары
                 </NavLink>
-                <button onClick={() => navigate('/basket')} className='text-[30px] '>
+                <button onClick={() => navigate(`/basket/${userId}`)} className='text-[30px] '>
                     <SlBasket />
                 </button>
                 <button onClick={adminHandler} className='text-[30px] '>
@@ -110,7 +112,35 @@ function Navbar() {
                     Выйти
                 </button>
             </div>
-        </nav>
+            <button onClick={() => setIsMenuOpen(true)} className='lg:hidden flex text-[30px]'>
+                <FiMenu />
+            </button>
+            {isMenuOpen && (
+                <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+                    <div className='items-center flex text-[black] bg-white h-[400px] w-[230px] rounded shadow-lg flex-col gap-[30px] justify-center'>
+                        <button className='relative left-[40%] top-[-5%] text-[25px]' onClick={() => setIsMenuOpen(false)}>
+                            <IoMdClose />
+                        </button>
+                        <NavLink onClick={() => setIsMenuOpen(false)} to={'/products'} className={'hover:underline text-[28px] hover:text-[skyblue] transition-all duration-200'}>
+                            Товары
+                        </NavLink>
+                        <button onClick={() => (
+                            navigate('/basket'),
+                            setIsMenuOpen(false))} className='hover:underline text-[28px] hover:text-[skyblue] transition-all duration-200 '>
+                            Карзина
+                        </button>
+                        <button onClick={adminHandler} className='hover:underline text-[28px] hover:text-[skyblue] transition-all duration-200 '>
+                            <h1>Профиль</h1>
+                            <IoPersonCircleSharp />
+                        </button>
+                        <button onClick={() => tokenDispatch(logOutAction())} className='text-[28px] items-center hover:text-[skyblue] gap-[10px]'>
+                            Выйти
+                        </button>
+                    </div>
+                </div>
+            )
+            }
+        </nav >
     )
 }
 

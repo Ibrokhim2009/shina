@@ -15,9 +15,9 @@ function Layout() {
             <div ref={scroll2Ref}>
                 <About />
             </div>
-            {/* <div ref={scroll3Ref}>
+            <div ref={scroll3Ref}>
                 <Contact />
-            </div> */}
+            </div>
         </div>
     )
 }
