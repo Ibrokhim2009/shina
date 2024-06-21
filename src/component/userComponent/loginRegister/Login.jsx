@@ -2,11 +2,11 @@ import React, { useContext, useEffect } from 'react'
 import adminImage from '../../../assets/adminImage.png'
 import { logInAction } from '../../../reducer/action'
 import { Context } from '../../../App'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { usersUrl } from '../../../../Urls'
 function Login() {
-    const { tokenDispatch, setUsersArr, usersArr } = useContext(Context)
+    const { tokenDispatch, setUsersArr, usersArr, userId, setUserId } = useContext(Context)
     const navigate = useNavigate()
     useEffect(() => {
 
@@ -28,9 +28,10 @@ function Login() {
         const { login, password } = Object.fromEntries(forma.entries())
         const findedElement = usersArr.find(item => item.login == login && item.password == password)
         console.log(findedElement)
+        setUserId(findedElement.id)
         if (findedElement) {
             tokenDispatch(logInAction())
-            navigate(`/${findedElement.id}`)
+            navigate(`/`)
         }
         else {
             alert('tel yoki parol hato')

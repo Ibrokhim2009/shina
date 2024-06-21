@@ -14,6 +14,7 @@ import axios from 'axios'
 import Register from './component/userComponent/loginRegister/Register'
 import AdminEdit from './component/adminComponent/adminSidebar/adminTable/AdminEdit'
 import Basket from './component/userComponent/basket/Basket'
+import PageNotFound from './component/404Page/PageNotFound'
 export const Context = createContext()
 function App() {
   const [product, setProduct] = useState([])
@@ -23,6 +24,7 @@ function App() {
   // console.log(useParams())
   const [userId, setUserId] = useState(null)
   const [basketCard, setBasketCard] = useState([])
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const scroll1Ref = useRef()
   const scroll3Ref = useRef()
   const scroll2Ref = useRef()
@@ -32,7 +34,7 @@ function App() {
   const tokens = JSON.stringify(tokenState.token)
   useEffect(() => {
     localStorage.setItem('token', tokens)
-
+    // localStorage.setItem('id', userId)
   }, [tokenState.token])
   // scrollHandler
   const scrollToSection = (sectionRef) => {
@@ -63,11 +65,22 @@ function App() {
     }
     prodHandler()
   }, [])
-  const addToCart = (items) => {
-    setBasketCard([basketCard,items]);
+  console.log(userId)
+  const addToCart = (element) => {
+    setBasketCard([...basketCard, element]);
+    console.log(basketCard)
+
+  };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
   };
   return (
-    <Context.Provider value={{ product, tokenState, addToCart, usersArr, setUsersArr, handleDelete, tokenDispatch, scrollToSection, scroll3Ref, setProduct, scroll1Ref, scroll2Ref }}>
+    <Context.Provider value={{ product, tokenState, userId, setUserId, toggleMenu, isMenuOpen, setIsMenuOpen, addToCart, usersArr, setUsersArr, handleDelete, tokenDispatch, scrollToSection, scroll3Ref, setProduct, scroll1Ref, scroll2Ref }}>
       <div className='bg-[#F2F6FA]'>
         {location.pathname !== '/login' && location.pathname !== '/register' ? <Navbar /> : ''}
         <div className='w-[100%] min-h-[100vh] px-[10px] md:px-[20px] xl:px-[30px] pb-[80px] '>
@@ -80,7 +93,7 @@ function App() {
                 <Route element={<Layout />} path='/' />
                 <Route element={<AdminEdit />} path='/admin/:id' />
                 <Route element={<Admin />} path='admin' />
-                <Route element={<Basket />} path='basket/:id' />
+                <Route element={<Basket />} path='basket' />
               </Route>
             </Routes>
           </div>

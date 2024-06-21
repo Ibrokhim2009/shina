@@ -1,33 +1,23 @@
 {
   "prod": [
     {
-      "id": "0fd6",
-      "title": "ghbasd",
-      "brand": "BALON",
-      "description": "zor olma",
-      "image": "http://localhost:5173/1720213f-9430-4f29-9771-d8c719ee1af9",
-      "price": "200",
-      "size": "2xl",
-      "currence": "dollars"
-    },
-    {
-      "id": "c5ad",
-      "title": "shina",
-      "brand": "miashlae",
-      "description": "zorolma",
-      "image": "http://localhost:5173/d44466fb-1996-48e5-bfd6-73a34c5cda7c",
-      "price": "200",
-      "size": "5XL",
-      "currence": "rubles"
-    },
-    {
-      "id": "b1ca",
+      "id": "3f98",
       "title": "shina",
       "brand": "mishlen",
-      "description": "zor olma",
-      "image": "http://localhost:5173/fdab43f0-41ad-4cef-8a13-222b9a1fc576",
+      "description": "zorolma",
+      "image": "http://localhost:5173/e739bad5-1b2c-4638-ae8f-365170ea2a1b",
       "price": "200",
       "size": "5XL",
+      "currence": "sum"
+    },
+    {
+      "id": "9c23",
+      "title": "shina",
+      "brand": "BALON",
+      "description": "asdsa",
+      "image": "http://localhost:5173/8fd804e2-eebc-4865-bce7-68ef9a81af2d",
+      "price": "200",
+      "size": "1 BALON shian 200 zor olma",
       "currence": "UZDT"
     }
   ],
@@ -50,41 +40,63 @@
       "id": "f446",
       "password": "1234",
       "login": "user3333",
-      "name": "Ibrohim"
+      "name": "Ibrohim",
+      "role": "user"
     },
     {
       "id": "5f87",
       "password": "4444",
       "login": "alyosha123",
-      "name": "Alisher"
+      "name": "Alisher",
+      "role": "user"
     },
     {
       "id": "1be7",
       "password": "0000",
       "login": "sh555",
-      "name": "Sherzod"
+      "name": "Sherzod",
+      "role": "user"
     }
   ],
   "baket": [
-    {},
     {
-      "id": "f4e4",
-      "password": "1234",
-      "login": "user3333",
-      "name": "Ibrohim",
+      "id": "397f",
+      "password": "123",
+      "login": "user222",
+      "name": "Malone Spears",
+      "role": "user",
       "products": []
     },
     {
-      "id": "d004",
-      "password": "4444",
-      "login": "alyosha123",
-      "name": "Alisher"
+      "id": "651d",
+      "password": "1111",
+      "login": "admin",
+      "name": "Begzod",
+      "role": "admin",
+      "products": []
     },
     {
-      "id": "0f94",
+      "id": "f446",
+      "password": "1234",
+      "login": "user3333",
+      "name": "Ibrohim",
+      "role": "user",
+      "products": []
+    },
+    {
+      "id": "5f87",
+      "password": "4444",
+      "login": "alyosha123",
+      "name": "Alisher",
+      "role": "user",
+      "products": []
+    },
+    {
+      "id": "1be7",
       "password": "0000",
       "login": "sh555",
       "name": "Sherzod",
+      "role": "user",
       "products": []
     }
   ]

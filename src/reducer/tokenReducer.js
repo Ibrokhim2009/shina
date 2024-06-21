@@ -1,7 +1,7 @@
 import { LOGGEN_IN, LOGGEN_OUT } from "./type"
 const tokens = JSON.parse(localStorage.getItem('token'))
 export const tokenInitialState = {
-    token: tokens || false
+    token: tokens || true
 }
 export const tokenReducer = (state, action) => {
     switch (action.type) {

@@ -14,7 +14,8 @@ function Register() {
         const registerUsersHandler = {
             password,
             login,
-            name
+            name,
+            role: 'user'
         }
         const usersBasketHandler = {
             password,
