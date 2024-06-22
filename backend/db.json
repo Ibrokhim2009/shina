@@ -1,24 +1,54 @@
 {
   "prod": [
     {
-      "id": "3f98",
+      "id": "abf9",
       "title": "shina",
       "brand": "mishlen",
-      "description": "zorolma",
-      "image": "http://localhost:5173/e739bad5-1b2c-4638-ae8f-365170ea2a1b",
-      "price": "200",
-      "size": "5XL",
-      "currence": "sum"
+      "description": "zor olma",
+      "image": "http://localhost:5175/603c4e01-4125-45ea-b392-37a6929e36f9",
+      "price": "300",
+      "size": "2xl",
+      "currence": "UZDT"
     },
     {
-      "id": "9c23",
+      "id": "8ece",
       "title": "shina",
-      "brand": "BALON",
-      "description": "asdsa",
-      "image": "http://localhost:5173/8fd804e2-eebc-4865-bce7-68ef9a81af2d",
-      "price": "200",
-      "size": "1 BALON shian 200 zor olma",
-      "currence": "UZDT"
+      "brand": "mishlen",
+      "description": "sdfjkhsdfkjsdhfksdjfhsdj",
+      "image_file": "http://localhost:5175/fb2857e1-86d2-4a0c-8dd6-8c1510ee5636",
+      "price": "300",
+      "size": "222",
+      "currency": "UZDT"
+    },
+    {
+      "id": "22fc",
+      "title": "shina",
+      "brand": "mishlen",
+      "description": "zor olma",
+      "image_file": "http://localhost:5175/27035ba6-9a24-4a27-b3bd-ee4cfadb6381",
+      "price": "300",
+      "size": "222",
+      "currency": "UZDT"
+    },
+    {
+      "id": "4717",
+      "title": "shina",
+      "brand": "mishlen",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit.                 Architecto inventore fugit corporis. Tenetur                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cumque!,                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia recusandae                 dolorem accusamus numquam exercitationem repudiandae tempore placeat, explicabo beatae distinctio!",
+      "image_file": "http://localhost:5175/661254ca-3e19-415e-a394-9a7526da23d6",
+      "price": "300",
+      "size": "5XL",
+      "currency": "UZDT"
+    },
+    {
+      "id": "0dda",
+      "title": "mishlen",
+      "brand": "shina",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto inventore fugit corporis. Tenetur Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, cumque!, Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia recusandae dolorem accusamus numquam exercitationem repudiandae tempore placeat, explicabo beatae distinctio!",
+      "image_file": "http://localhost:5175/2c518b60-dff4-4478-bc35-59e83e268000",
+      "price": "2296",
+      "size": "300",
+      "currency": "UZDT"
     }
   ],
   "users": [

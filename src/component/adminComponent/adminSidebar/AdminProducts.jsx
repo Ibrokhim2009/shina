@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../../../App'
 import { prodUrl } from '../../../../Urls'
 import axios from 'axios'
@@ -6,8 +6,8 @@ import axios from 'axios'
 function AdminProducts() {
     const { product, setProduct } = useContext(Context)
     const [selectedValue, setSelectedValue] = useState('');
-    const [fileData, setFileData] = useState(null);
-    const [submitClicked, setSubmitClicked] = useState(false);
+    // const [fileData, setFileData] = useState(null);
+    // const [submitClicked, setSubmitClicked] = useState(false);
     const [files, setFiles] = useState({});
     // const [files2, setFiles2] = useState([]);
     const addFile = (file) => {
@@ -25,39 +25,37 @@ function AdminProducts() {
         }
         console.log(files)
         // setSelectedFile(file);
-
     };
     const handleSelectChange = (event) => {
         setSelectedValue(event.target.value);
-    };
+    }
     const productHandler = e => {
         e.preventDefault()
         setFiles({})
         console.log(files.slice(5).toString())
         const forma = new FormData(e.target)
-        const { title, brand, image, description, price, size, } = Object.fromEntries(forma.entries())
+        const { title, brand, description, price, size, } = Object.fromEntries(forma.entries())
         const addProduct = {
             title,
             brand,
             description,
-            image: files,
+            image_file: files,
             price,
             size,
-            currence: selectedValue ? selectedValue : 'UZDT'
+            currency: selectedValue ? selectedValue : 'UZDT'
         }
         try {
             axios.post(prodUrl, addProduct)
                 .then(res => {
-                    setProduct([product, ...addProduct])
-                    console.log([product, ...addProduct])
+                    setProduct([...product, addProduct])
+                    console.log([...prodUrl, addProduct])
                 })
             alert('Product qoshildi')
-            window.location.reload()
+            // window.location.reload()
         }
         catch (err) {
             console.log(err);
         }
-
     }
     // console.log(files)
     return (
@@ -82,10 +80,15 @@ function AdminProducts() {
                     <div className='w-[100%] justify-between gap-[10px] md:gap-[20px] h-[60px] flex items-center'>
                         <input required className='md:w-[90%] w-[80%] shadow-xl outline-none rounded-xl h-[50px] pr-[30px] pl-[10px] text-[24px]' type="number" placeholder='price' name="price" id="" />
                         <select required name="" className='appearance-none md:w-[15%] w-[20%] h-[50px] shadow-xl outline-none text-[16px] md:text-[20px] pl-[10px] rounded-xl flex items-center justify-center' id="" value={selectedValue} onChange={handleSelectChange}>
-                            <option className='' value="dollars">USDT</option>
-                            <option className='' value="sum">UZD</option>
-                            <option className='' value="rubles">RUB</option>
-                            <option className='' value="tenge">TNG</option>
+                            <option className='' value="US Dollar">
+                                US Dollar
+                            </option>
+                            <option className='' value="sum">
+                                Uzbekistan Sum
+                            </option>
+                            <option className='' value="Euro">
+                                Euro
+                            </option>
                         </select>
                     </div>
                     <input required className='w-[100%] shadow-xl outline-none rounded-xl h-[50px] pl-[10px] text-[24px]' type="text" placeholder='size' name="size" id="" />

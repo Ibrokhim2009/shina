@@ -32,7 +32,7 @@ function AdminEdit() {
         async function getCurrentData() {
             try {
                 const res = await axios.get(`${prodUrl}/${id}`)
-                setCurrent(res.data)
+                setAdminEdit(res.data)
             }
             catch (err) {
                 console.log(err);

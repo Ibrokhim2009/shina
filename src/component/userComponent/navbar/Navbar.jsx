@@ -6,7 +6,7 @@ import { SlBasket } from 'react-icons/sl'
 import { CiHeart, CiLogin } from 'react-icons/ci'
 import { MdLogin } from 'react-icons/md'
 import { Context } from '../../../App'
-import { IoPersonCircleSharp } from 'react-icons/io5'
+import { IoBasketOutline, IoPersonCircleSharp } from 'react-icons/io5'
 import axios from 'axios'
 import { usersUrl } from '../../../../Urls'
 import { logOutAction } from '../../../reducer/action'
@@ -77,8 +77,12 @@ function Navbar() {
             navigate('/login')
         }
     }
+    const logOut = e => {
+        tokenDispatch(logOutAction())
+
+    }
     return (
-        <nav className={`md:h-[80px] bg-[#091a2a] text-white lg:h-[90px] xl:h-[100px] h-[60px] sm:h-[70px] sticky mb-[40px] top-0 left-0 ${isVisible ? 'shadow-[0px_5px_15px_#e6e6e6]' : ''} bg-[#F2F6FA] flex justify-around items-center w-[100%]`}>
+        <nav className={`md:h-[80px] text-[white] bg-[#091a2a] lg:h-[90px] xl:h-[100px] h-[60px] sm:h-[70px] sticky mb-[40px] top-0 left-0 ${isVisible ? 'shadow-[0px_5px_15px_#e6e6e6]' : ''} flex justify-around items-center w-[100%]`}>
             <div>
                 <button onClick={logoButton}>
                     <img className='md:h-[70px] lg:h-[85px] xl:h-[100px] h-[60px]' src={logo} alt="" />
@@ -102,7 +106,7 @@ function Navbar() {
                 <NavLink to={'/products'} className={'hover:underline text-[28px] hover:text-[skyblue] transition-all duration-200'}>
                     Товары
                 </NavLink>
-                <button onClick={() => navigate(`/basket/${userId}`)} className='text-[30px] '>
+                <button onClick={() => navigate(`/basket`)} className='text-[30px] '>
                     <SlBasket />
                 </button>
                 <button onClick={adminHandler} className='text-[30px] '>
@@ -121,19 +125,20 @@ function Navbar() {
                         <button className='relative left-[40%] top-[-5%] text-[25px]' onClick={() => setIsMenuOpen(false)}>
                             <IoMdClose />
                         </button>
-                        <NavLink onClick={() => setIsMenuOpen(false)} to={'/products'} className={'hover:underline text-[28px] hover:text-[skyblue] transition-all duration-200'}>
+                        <NavLink onClick={() => setIsMenuOpen(false)} to={'/products'} className={'hover:underline text-[24px] hover:text-[skyblue] transition-all duration-200'}>
                             Товары
                         </NavLink>
                         <button onClick={() => (
                             navigate('/basket'),
-                            setIsMenuOpen(false))} className='hover:underline text-[28px] hover:text-[skyblue] transition-all duration-200 '>
+                            setIsMenuOpen(false))} className='hover:underline flex items-center gap-[10px] text-[24px] hover:text-[skyblue] transition-all duration-200 '>
                             Карзина
+                            <SlBasket />
                         </button>
-                        <button onClick={adminHandler} className='hover:underline text-[28px] hover:text-[skyblue] transition-all duration-200 '>
+                        <button onClick={adminHandler} className='flex items-center gap-[10px] hover:underline text-[22px] hover:text-[skyblue] transition-all duration-200 '>
                             <h1>Профиль</h1>
                             <IoPersonCircleSharp />
                         </button>
-                        <button onClick={() => tokenDispatch(logOutAction())} className='text-[28px] items-center hover:text-[skyblue] gap-[10px]'>
+                        <button onClick={logOut} className='text-[24px] items-center hover:text-[skyblue] gap-[10px]'>
                             Выйти
                         </button>
                     </div>
