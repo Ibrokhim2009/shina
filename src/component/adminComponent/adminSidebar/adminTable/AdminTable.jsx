@@ -10,20 +10,13 @@ import Products from '../../../userComponent/products/Products'
 function AdminTable() {
     const { product, setProduct } = useContext(Context)
     const navigate = useNavigate()
-    const handleDelete = (id) => {
-        axios.delete(`${prodUrl}/${id}`)
-            .then(() => {
-                setProduct(product.filter(card => card.id !== id));
-            })
-            .catch(error => {
-                console.error('Error deleting data:', error);
-            });
-    };
+
     useEffect(() => {
         async function tagleAdminGetHandler() {
             try {
                 const rezult = await axios.get(prodUrl)
                 setProduct(rezult.data)
+                console.log(rezult.data)
             }
             catch (err) {
                 console.log(err)
@@ -31,6 +24,9 @@ function AdminTable() {
         }
         tagleAdminGetHandler()
     }, [])
+    const handleDelete = (id) => {
+        axios.delete(`${prodUrl}${id}/`)
+    };
     return (
         <>
             {product.length > 0 ? (
@@ -49,7 +45,7 @@ function AdminTable() {
                     </thead>
                     <tbody className='flex w-[100%] px-[10px] md: items-center justify-center flex-col'>
                         {product?.map((item, index) => (
-                            <tr className='flex odd:bg-[white] even:bg-slate-50 w-[100%] items-center justify-between'>
+                            <tr key={item.id} className='flex odd:bg-[white] even:bg-slate-50 w-[100%] items-center justify-between'>
                                 <td className='w-[7%] text-[10px] sm:text-[16px] border-r border-r-slate-400 border-solid text-center'>
                                     {index + 1}
                                 </td>
